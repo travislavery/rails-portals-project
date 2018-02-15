@@ -1,0 +1,12 @@
+<h1><%= link_to quest.title, quest %></h1>
+<h2>Current participants: 
+	<% if current_user.god %> 
+		<% quest.users.each do |user| %>
+			<%= user_with_link(user) %>
+		<%end%> 
+	<%else%>
+		<%= quest.list_users %>
+	<%end%>
+</h2>
+
+<%= button_to "Join quest!", update_quest_path(quest) if policy(quest).update? %>
