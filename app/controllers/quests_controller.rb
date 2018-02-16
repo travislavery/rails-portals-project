@@ -28,6 +28,19 @@ class QuestsController < ApplicationController
 		end
 	end
 
+	def new
+		@portal = Portal.find_by(id: params[:portal_id]) || Portal.first
+		@quest = Quest.new
+	end
+
+	def create
+		@quest = Quest.create(quest_params)
+		if @quest.valid?
+			redirect_to @quest
+		else
+			render :new
+		end
+	end
 	private
 
 	def quest_params

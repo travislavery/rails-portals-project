@@ -1,0 +1,14 @@
+<%= form_for portal do |f|%>
+	<%= f.label :location%>
+	<%= f.text_field :location %><br>
+	<p>Create a Quest for this portal! (if ya wanna)</p>
+	<%= f.fields_for :quests, portal.quests.build do |quest_field| %>
+		<%= quest_field.label :title%>
+		<%= quest_field.text_field :title %><br>
+		<%= quest_field.label :priority%>
+		<%= quest_field.number_field :priority %><br>
+		<%= quest_field.label :karma_impact%>
+		<%= quest_field.number_field :karma_impact %><br>
+	<%end%>
+	<%= f.submit %>
+<%end%>

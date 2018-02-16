@@ -7,12 +7,19 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
+
+      
+    <%= render 'layouts/header' %>
+    <div class="central">
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <p class="notice"><%= flash[:message] if flash[:message] %></p>
-    <%= yield %>
-    <p><%= link_to('Sign out', destroy_user_session_path, method: :delete) if current_user%></p>
+    
+      <%= yield %>
+    </div>
+
+    <%= render 'layouts/footer'%>
+    
   </body>
 </html>

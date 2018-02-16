@@ -1,0 +1,11 @@
+<%= form_for quest do |f|%>
+	<%= f.label :title%>
+	<%= f.text_field :title %><br>
+	<%= f.label :priority%>
+	<%= f.number_field :priority %><br>
+	<%= f.label :karma_impact%>
+	<%= f.number_field :karma_impact %><br>
+	<%= f.label 'Which portal is this quest through?'%>
+	<%= f.collection_select :portal_id, Portal.all, :id, :location, {selected: portal.id} %><br>
+	<%= f.submit %>
+<%end%>

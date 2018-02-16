@@ -1,0 +1,13 @@
+<header>
+	<h1>Rails Portal Project</h1>
+</header>
+<nav>
+  <ul>
+  	<li><h2><%= link_to "View Stats", current_user %></h2></li>
+    <li><h2><%= link_to "Portals", portals_path%></h2></li>
+    <li>
+    	<h2><%= link_to "Quests", quests_path%></h2>
+    	<h4><%= link_to "New Quest!", new_quest_path%></h4>
+    </li>
+  </ul>
+</nav>
