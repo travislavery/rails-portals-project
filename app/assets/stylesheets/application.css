@@ -13,3 +13,29 @@
  *= require_tree .
  *= require_self
  */
+body {
+	max-width: 100%
+}
+
+header, footer {
+    padding: 1em;
+    margin: 0;
+    color: white;
+    background-color: black;
+    clear: left;
+    text-align: center;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+    position: fixed;
+}
+
+.central {
+	float: left;
+	margin-left: 200px;
+	padding-bottom: 200px;
+}
