@@ -4,4 +4,8 @@ class PortalPolicy < ApplicationPolicy
       scope
     end
   end
+
+  def new?
+  	user.god
+  end
 end

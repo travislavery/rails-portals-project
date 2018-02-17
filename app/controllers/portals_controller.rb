@@ -5,12 +5,12 @@ class PortalsController < ApplicationController
 	end
 
 	def show
-		#binding.pry
 		@portal = Portal.find(params[:id])
 	end
 
 	def new
 		@portal = Portal.new
+		authorize @portal
 	end
 
 	def create
@@ -19,16 +19,8 @@ class PortalsController < ApplicationController
 		if @portal.save
 			redirect_to @portal
 		else
-			render :new
+			render :new, alert: @portal.errors.full_messages.map{|msg| msg } if @portal.errors.any?
 		end
-	end
-
-	def edit
-
-	end
-
-	def destroy
-
 	end
 
 	private
