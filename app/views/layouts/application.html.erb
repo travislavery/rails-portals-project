@@ -9,18 +9,24 @@
   </head>
   <body>
 
+    <div id="container">
       
-    <%= render 'layouts/header' %>
-    <%= render 'layouts/right' %>
-    <div class="central">
-  	<p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <p class="notice"><%= flash[:message] if flash[:message] %></p>
-    
-      <%= yield %>
-    </div>
+      <%= render 'layouts/header' %>
+      
+      <%= render 'layouts/right' %>
+      
+      <div class="central">
+    	<p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <p class="notice"><%= flash[:message] if flash[:message] %></p>
+      
+        <%= yield %>
+      
+      </div>
 
-    <%= render 'layouts/footer'%>
+      <%= render 'layouts/footer'%>
+
+    </div>
     
   </body>
 </html>

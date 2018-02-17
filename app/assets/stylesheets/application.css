@@ -14,7 +14,10 @@
  *= require_self
  */
 body {
-	max-width: 100%
+	max-width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 header, footer {
@@ -24,6 +27,10 @@ header, footer {
     background-color: black;
     clear: left;
     text-align: center;
+}
+
+footer {
+    bottom: 0;
 }
 
 nav {
@@ -36,15 +43,20 @@ nav {
 
 .central {
 	float: left;
-	margin-left: 200px;
-	padding-bottom: 200px;
+	margin-left: 250px;
+	padding-bottom: 250px;
 }
 
 .right_column {
     float: left;
-    max-width: 160px;
+    max-width: 200px;
     margin: 0;
     padding: 1em;
     position: absolute;
     right: 50px;
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
 }

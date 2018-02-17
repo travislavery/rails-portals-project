@@ -1,2 +1,11 @@
-<h1><%= user.name %></h1>
-<%= user.email %>
+<h1><%= user.name || user.email %></h1>
+<h1>Current Quests:</h1>
+<ul>
+	<% user.quests.each do |q| %>
+		<li>
+			<h2><%= title_link(q) %></h2>
+			<p>Karma: <%= q.karma_impact %></p>
+			<p>Fellow Companions: <%= q.list_users%></p>
+		</li>	
+	<%end%>
+</ul>

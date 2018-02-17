@@ -41,6 +41,25 @@ class QuestsController < ApplicationController
 			render :new
 		end
 	end
+
+	def join
+		@quest = Quest.find(params[:id])
+		authorize @quest
+		@quest.users << current_user
+		@quest.save
+		redirect_to @quest, alert: "Joined #{@quest.title} Quest"
+	end
+
+	def leave
+		@quest = Quest.find(params[:id])
+		if @quest.users.include?(current_user)
+			UserQuest.find_by(user: current_user, quest: @quest).destroy
+			redirect_to quests_path, alert: "Abandonded #{@quest.title} Quest"
+		else
+			redirect_to quests_path, alert: "You weren't a part of that quest to begin with!"
+		end
+	end
+
 	private
 
 	def quest_params
