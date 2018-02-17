@@ -13,4 +13,5 @@ class Quest < ApplicationRecord
 		end
 		array.join(", ")
 	end
+
 end

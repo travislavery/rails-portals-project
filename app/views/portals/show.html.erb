@@ -1,1 +1,2 @@
 <%= render @portal %>
+<%= button_to "New Quest!", new_quest_path, method: :get, params: { portal_id: @portal.id }%>

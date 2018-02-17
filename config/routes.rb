@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :users, only: [:show, :update]
   resources :portals
   resources :quests
-  resources :portals, only: [:show] do
-  	resources :quests
+  resources :portals do
+  	resources :quests, only: [:show, :new]
   end
 
   namespace :god do

@@ -15,4 +15,8 @@ class Portal < ApplicationRecord
 			portal: self
 			)
 	end
+
+	def self.most_popular
+		joins(:quests).group(:portal_id).order("count(*) desc").count
+	end
 end

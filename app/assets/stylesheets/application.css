@@ -39,3 +39,12 @@ nav {
 	margin-left: 200px;
 	padding-bottom: 200px;
 }
+
+.right_column {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+    position: absolute;
+    right: 50px;
+}

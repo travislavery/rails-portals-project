@@ -1,0 +1,11 @@
+<div class="right_column">
+  <h2>Popular Quests</h2>
+  <ul>
+  	<% Portal.most_popular.each do |portal, quest_count| %>
+		<li>
+			<h2><%= link_to Portal.find(portal).location, Portal.find(portal) %></h2>
+			<h4>Quest Count: <%= quest_count %></h4>
+		</li>
+	<%end%>
+  </ul>
+</div>
