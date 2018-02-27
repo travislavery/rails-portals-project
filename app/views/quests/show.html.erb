@@ -1,3 +1,13 @@
 <%= render @quest %>
-<%= member_of?(@quest) %>
-<%= lackey_count?(@quest) %>
+<%= join_button?(@quest) %>
+<% if member_of?(@quest) %>
+	<h4>You have <%= get_lackey_count(@quest) %> Lackeys to help you out</h4>
+	<%= form_for @quest, url: { action: "lackeys" } do |f|%>
+		<p>Want to hire any lackeys to do the hard work?</p>
+		<%= f.fields_for :user_quest do |user_f|%>
+			<%= user_f.label :lackeys %>
+			<%= user_f.number_field :lackeys%>
+		<%end%>
+		<%= f.submit %>
+	<%end%>
+<%end%>

@@ -9,7 +9,6 @@ class Portal < ApplicationRecord
 	def quests_attributes=(quest_attributes)
 		
 		quest_attributes.each do |quest|
-			binding.pry
 			q = Quest.create(
 				title: quest[1][:title],
 				karma_impact: quest[1][:karma_impact],

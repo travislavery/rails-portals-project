@@ -26,7 +26,6 @@ class PortalsController < ApplicationController
 	private
 
 	def portal_params
-		binding.pry
 		params.require(:portal).permit(:user, :location, quests_attributes: [:title, :karma_impact, :priority])
 	end
 end

@@ -34,11 +34,11 @@ class QuestsController < ApplicationController
 	end
 
 	def create
-		@quest = Quest.create(quest_params)
-		if @quest.valid?
+		@quest = Quest.new(quest_params)
+		if @quest.save
 			redirect_to @quest
 		else
-			render :new
+			redirect_to :new_quest, alert: @quest.errors.full_messages.map{|msg| msg } if @quest.errors.any?
 		end
 	end
 
@@ -58,6 +58,14 @@ class QuestsController < ApplicationController
 		else
 			redirect_to quests_path, alert: "You weren't a part of that quest to begin with!"
 		end
+	end
+
+	def lackeys
+		binding.pry
+		@quest = Quest.find(params[:id])
+		user_quest = UserQuest.find_by(user: current_user, quest: @quest).update(lackeys: params[:quest][:user_quest][:lackeys])
+		
+		redirect_to @quest
 	end
 
 	private

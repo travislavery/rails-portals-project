@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :quests do
     member do 
       post 'join', 'leave'
+      patch 'lackeys'
     end
   end
   resources :portals do
