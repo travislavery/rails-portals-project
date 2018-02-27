@@ -63,6 +63,6 @@ class QuestsController < ApplicationController
 	private
 
 	def quest_params
-		params.require(:quest).permit(:title, :users, :priority, :completed, :karma_impact, :portal_id)
+		params.require(:quest).permit(:title, :users, :priority, :completed, :karma_impact, :portal_id, :lackeys)
 	end
 end

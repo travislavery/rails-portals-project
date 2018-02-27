@@ -14,7 +14,7 @@ class PortalsController < ApplicationController
 	end
 
 	def create
-		@portal = Portal.new(portal_params)
+		@portal = Portal.create(portal_params)
 		@portal.user = current_user
 		if @portal.save
 			redirect_to @portal
@@ -26,6 +26,7 @@ class PortalsController < ApplicationController
 	private
 
 	def portal_params
+		binding.pry
 		params.require(:portal).permit(:user, :location, quests_attributes: [:title, :karma_impact, :priority])
 	end
 end
