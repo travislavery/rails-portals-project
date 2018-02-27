@@ -11,6 +11,13 @@ class UsersController < ApplicationController
 		redirect_to @user
 	end
 
+	def ascend
+		@user = User.find_by(id: params[:id])
+		authorize @user
+		@user.update(god: true)
+		redirect_to @user, alert: "Became a god."
+	end
+
 	private
 
 	def user_params

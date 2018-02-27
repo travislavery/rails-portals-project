@@ -1,1 +1,2 @@
 <%= render @user %>
+<%= button_to "Become God", ascend_user_path(@user) if !@user.god%>

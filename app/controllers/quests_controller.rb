@@ -61,7 +61,6 @@ class QuestsController < ApplicationController
 	end
 
 	def lackeys
-		binding.pry
 		@quest = Quest.find(params[:id])
 		user_quest = UserQuest.find_by(user: current_user, quest: @quest).update(lackeys: params[:quest][:user_quest][:lackeys])
 		

@@ -16,4 +16,8 @@ class UserPolicy < ApplicationPolicy
   def update? 
   	user.god
   end
+
+  def ascend?
+    record.try(:id) == user.id
+  end
 end
