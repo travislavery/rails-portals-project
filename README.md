@@ -5,20 +5,17 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+## Description
+This rails application is a rough draft of an interface where you are an adventurer, creating and joining quests through the various portals that the Gods have created.
 
-* System dependencies
+## Installation
+To install this application: 
+- Clone this repository, 
+- Run bundle install
+- Run rake db:migrate,
+- Run rake db:seed
+- Run rails s
 
-* Configuration
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## License
+https://creativecommons.org/licenses/by/4.0/legalcode
