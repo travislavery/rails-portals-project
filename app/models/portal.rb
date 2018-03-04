@@ -1,7 +1,6 @@
 class Portal < ApplicationRecord
 	belongs_to :user
 	has_many :quests
-
 	validates :location, presence: true
 	validates :user_id, presence: true
 	#accepts_nested_attributes_for :quests, :reject_if => :all_blank

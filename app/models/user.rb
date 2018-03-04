@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
   	 	 :omniauthable, :omniauth_providers => [:facebook]
 
+  validates :karma, numericality: {only_integer: true}
   has_many :portals
   has_many :user_quests
   has_many :quests, through: :user_quests
@@ -20,5 +21,15 @@ class User < ApplicationRecord
   		user.password = Devise.friendly_token[0,20]
   	end
   end
+
+  def update_user_karma
+    current_karma = 0
+    self.quests.each do |q|
+      current_karma += q.karma_impact
+    end
+    self.karma = current_karma
+    self.save
+  end
+
 
 end
