@@ -8,6 +8,7 @@ class QuestsController < ApplicationController
 				redirect_to portals_path, alert: "Portal not found"
 			else
 				@quests = portal.quests
+				render json: @quests
 			end
 		else
 			@quests = Quest.all
