@@ -1,4 +1,5 @@
 class PortalSerializer < ActiveModel::Serializer
   attributes :id, :location
-  has_many :quests
+  belongs_to :user, serializer: PortalUserSerializer
+  #has_many :quests
 end

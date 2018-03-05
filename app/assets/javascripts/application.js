@@ -16,3 +16,5 @@
 //= require_tree .
 //= require quest
 //= require new_quest
+//= require portal
+//= require show_portal

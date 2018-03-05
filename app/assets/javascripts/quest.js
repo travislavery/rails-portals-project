@@ -3,6 +3,7 @@ class Quest{
 		this.id = jsonQuest['id']
 		this.title = jsonQuest['title']
 		this.karma_impact = jsonQuest['karma_impact']
+		this.priority = jsonQuest['priority']
 		this.portal = jsonQuest['portal']['location']
 		this.users = jsonQuest['users'].map(user=> user['name']).join(', ')
 	}
@@ -12,6 +13,7 @@ class Quest{
 		questHtml += `<a id='quest-${this.id}' href='/quests/${this.id}'><h2>${this.title}</h2></a>`
 		questHtml += `<p>Portal: ${this.portal}</p>`
 		questHtml += `<p>Karma Impact: ${this.karma_impact}</p>`
+		questHtml += `<p>Priority: ${this.priority}</p>`
 		questHtml += `<p>Participants: ${this.users}</p>`
 		return questHtml
 	}
