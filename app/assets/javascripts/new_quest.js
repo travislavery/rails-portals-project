@@ -1,7 +1,3 @@
-$(function(){
-	$('.questForm').on('submit', handleQuestForm)
-})
-
 function handleQuestForm(event){
 	event.preventDefault()
   let values = $(this).serialize()

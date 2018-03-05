@@ -33,6 +33,7 @@ $(document).on('turbolinks:load', function(){
 })
 
 function attachListeners(){
+	$('#new_quest').on('submit', handleQuestForm)
 	$('.viewQuests').on('click', getQuestJson)
 	$('#accordian').on('click', hideOrShowQuests)
 }
