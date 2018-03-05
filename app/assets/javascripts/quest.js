@@ -5,20 +5,41 @@ class Quest{
 		this.karma_impact = jsonQuest['karma_impact']
 		this.portal = jsonQuest['portal']['location']
 		this.users = jsonQuest['users'].map(user=> user['name']).join(', ')
-		
 	}
-	addToIndex(){
+
+	convertToHtml(){
 		let questHtml = ""
 		questHtml += `<a id='quest-${this.id}' href='/quests/${this.id}'><h2>${this.title}</h2></a>`
 		questHtml += `<p>Portal: ${this.portal}</p>`
 		questHtml += `<p>Karma Impact: ${this.karma_impact}</p>`
 		questHtml += `<p>Participants: ${this.users}</p>`
-		debugger
-		$('#quests').append(questHtml)
+		return questHtml
+	}
+
+	addMultipleToPage(element){
+		//debugger
+		$(element).append(this.convertToHtml.bind(this))
+	}
+
+	addSingleToPage(element){
+		$(element).html(this.convertToHtml.bind(this))
+	}
+
+	addToIndex(){
+		$('#quests').append(convertToHtml())
 	}
 
 	addToShow(){
 
+	}
+
+	addToCreated(){
+		let createdHtml = ""
+		questHtml += `<a id='quest-${this.id}' href='/quests/${this.id}'><h2>${this.title}</h2></a>`
+		questHtml += `<p>Portal: ${this.portal}</p>`
+		questHtml += `<p>Karma Impact: ${this.karma_impact}</p>`
+		questHtml += `<p>Participants: ${this.users}</p>`
+		$('#createdQuest').html("")
 	}
 }
 
@@ -40,6 +61,6 @@ function getQuestJson(){
 function addQuestsToPage(quests){
 	$('#quests').html("")
 	quests.forEach(function(quest){
-		quest.addToIndex()
+		quest.addMultipleToPage('#quests')
 	})
 }
