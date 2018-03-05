@@ -34,9 +34,13 @@ $(document).on('turbolinks:load', function(){
 
 function attachListeners(){
 	$('.viewQuests').on('click', getQuestJson)
+	$('#accordian').on('click', hideOrShowQuests)
 }
 
 function getQuestJson(){
+	$('#accordian')[0].style.display = 'block'
+	$('#quests')[0].style.display = 'block'
+	$('#viewQuests')[0].style.display = 'none'
 	$.getJSON(`/portals/${this.dataset.id}/quests`, function(data){
 		const quests = data.map(quest => new Quest(quest))
 		addQuestsToPage(quests)
@@ -48,4 +52,13 @@ function addQuestsToPage(quests){
 	quests.forEach(function(quest){
 		quest.addMultipleToPage('#quests')
 	})
+}
+
+function hideOrShowQuests(){
+	$quests = $('#quests')[0]
+	if ($quests.style.display === 'none'){
+		$quests.style.display = 'block'
+	} else {
+		$quests.style.display = 'none'
+	}
 }

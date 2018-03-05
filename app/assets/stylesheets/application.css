@@ -60,3 +60,17 @@ nav {
     min-height: 100%;
     position: relative;
 }
+
+#accordian {
+    display: none;
+    background-color: lightgrey;
+    text-align: left;
+    transition: 0.4s;
+}
+
+#quests {
+    padding: 0 18px;
+    background-color: white;
+    display: none;
+    overflow: hidden; 
+}

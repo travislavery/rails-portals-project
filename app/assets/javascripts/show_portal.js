@@ -9,7 +9,7 @@ function attachPortalListeners(){
 
 function setPreviousPortal(){
 	let previousPortalId = parseInt(this.dataset.portal)-1
-	if (previousPortalId < 0){
+	if (previousPortalId < 1){
 		previousPortalId = parseInt(this.dataset.maximum)
 	} 
 	requestPortal(previousPortalId)
@@ -17,13 +17,15 @@ function setPreviousPortal(){
 
 function setNextPortal(){
 	let nextPortalId = parseInt(this.dataset.portal)+1
-	if (previousPortalId > parseInt(this.dataset.maximum)){
-		previousPortalId = 0
+	if (nextPortalId > parseInt(this.dataset.maximum)){
+		nextPortalId = 1
 	} 
 	requestPortal(nextPortalId)
 }
 
 function requestPortal(nextUp){
+	$('#accordian')[0].style.display = 'none'
+	$('#viewQuests')[0].style.display = 'block'
 	$.getJSON(`/portals/${nextUp}`, function(data){	
 		const portal = new Portal(data)
 		portal.viewPortal()
