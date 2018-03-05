@@ -38,12 +38,13 @@ class QuestsController < ApplicationController
 	end
 
 	def create
-		binding.pry
+		#binding.pry
 		@quest = Quest.new(quest_params)
 		if @quest.save
 			render json: @quest, status: 201
 		else
-			redirect_to :new_quest, alert: @quest.errors.full_messages.map{|msg| msg } if @quest.errors.any?
+			render json: {errors: @quest.errors.messages}, status: 400
+			#redirect_to :new_quest, alert: @quest.errors.full_messages.map{|msg| msg } if @quest.errors.any?
 		end
 	end
 

@@ -7,5 +7,5 @@
 	<%= f.number_field :karma_impact %><br>
 	<%= f.label 'Which portal is this quest through?'%>
 	<%= f.collection_select :portal_id, Portal.all, :id, :location, {selected: portal.id} %><br>
-	<%= f.submit %>
+	<%= f.submit data: {disable_with: false} %>
 <%end%>

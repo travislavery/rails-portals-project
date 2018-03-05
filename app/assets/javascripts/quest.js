@@ -24,26 +24,9 @@ class Quest{
 	addSingleToPage(element){
 		$(element).html(this.convertToHtml.bind(this))
 	}
-
-	addToIndex(){
-		$('#quests').append(convertToHtml())
-	}
-
-	addToShow(){
-
-	}
-
-	addToCreated(){
-		let createdHtml = ""
-		questHtml += `<a id='quest-${this.id}' href='/quests/${this.id}'><h2>${this.title}</h2></a>`
-		questHtml += `<p>Portal: ${this.portal}</p>`
-		questHtml += `<p>Karma Impact: ${this.karma_impact}</p>`
-		questHtml += `<p>Participants: ${this.users}</p>`
-		$('#createdQuest').html("")
-	}
 }
 
-$(function(){
+$(document).on('turbolinks:load', function(){
 	attachListeners()
 })
 
