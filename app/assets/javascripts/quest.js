@@ -15,3 +15,17 @@ class Quest{
 
 	}
 }
+
+$(function(){
+	attachListeners()
+})
+
+function attachListeners(){
+	$('.viewQuests').on('click', getQuestJson)
+}
+
+function getQuestJson(){
+	$.getJSON(`/portals/${this.dataset.id}/quests`, function(data){
+		debugger
+	})
+}

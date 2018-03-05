@@ -13,7 +13,7 @@ Rails.application.routes.draw do
     end
   end
   resources :portals do
-  	resources :quests, only: [:show, :new]
+  	resources :quests, only: [:show, :new, :index]
   end
 
   namespace :god do
