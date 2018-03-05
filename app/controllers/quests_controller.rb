@@ -7,8 +7,9 @@ class QuestsController < ApplicationController
 			if portal.nil?
 				redirect_to portals_path, alert: "Portal not found"
 			else
+				@quests = portal.quests
 				respond_to do |format|
-					format.html {@quests = portal.quests}
+					format.html {@quests}
 					format.json {render json: @quests}
 				end
 			end

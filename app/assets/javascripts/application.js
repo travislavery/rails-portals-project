@@ -15,3 +15,4 @@
 //= require turbolinks
 //= require_tree .
 //= require quest
+//= require new_quest

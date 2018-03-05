@@ -1,7 +1,7 @@
 <h1><%= link_to portal.location, portal %></h1>
 <h4>Created by: <%= portal.user.name %></h4>
 <button id="portal-<%= portal.id %>" class="viewQuests" data-id="<%= portal.id %>"><h3>View Quests</h3></button>
-
+<div id='quests'></div>
 
 <!--<ul>
 	<% portal.quests.each do |q| %>
