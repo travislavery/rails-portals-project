@@ -43,7 +43,7 @@ class QuestsController < ApplicationController
 		if @quest.save
 			render json: @quest, status: 201
 		else
-			render json: {errors: @quest.errors.messages}, status: 400
+			render json: {errors: @quest.errors.full_messages.map{|msg| msg }}, status: 400
 			#redirect_to :new_quest, alert: @quest.errors.full_messages.map{|msg| msg } if @quest.errors.any?
 		end
 	end
