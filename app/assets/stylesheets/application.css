@@ -31,6 +31,9 @@ header, footer {
 
 footer {
     bottom: 0;
+    position: fixed;
+    z-index: 1;
+    width: 100%;
 }
 
 nav {
@@ -50,6 +53,8 @@ nav {
 .right_column {
     float: left;
     max-width: 200px;
+    max-height: 700px;
+    overflow-y: scroll;
     margin: 0;
     padding: 1em;
     position: absolute;
