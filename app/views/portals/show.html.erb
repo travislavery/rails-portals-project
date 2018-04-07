@@ -1,6 +1,7 @@
-<%= render @portal %>
-<%= button_to "New Quest!", new_quest_path, method: :get, params: { portal_id: @portal.id }%>
 <div>
 	<button class="previousPortal" data-maximum="<%= Portal.all.length %>" data-portal=<%= @portal.id %>><h3>Previous Portal</h3></button>
 	<button class="nextPortal" data-maximum="<%= Portal.all.length %>" data-portal=<%= @portal.id %>><h3>Next Portal</h3></button>
 </div>
+<%= render @portal %>
+<%= button_to "New Quest!", new_quest_path, method: :get, params: { portal_id: @portal.id }%>
+
